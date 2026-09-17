@@ -1,0 +1,17 @@
+[deps]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
+JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+MKL = "33e6dc65-8f57-5167-99aa-e5a354878fb2"
+MPSKit = "bb1c41ca-d63c-52ed-829e-0820dda26502"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+TensorKit = "07d1fe3e-3e46-537d-9eac-e9e13d0d4cec"
+ThreadPinning = "811555cd-349b-4f26-b7bc-1f208b848042"
+
+[compat]
+MPSKit = "0.13"
+TensorKit = "0.14, 0.15, 0.16"
