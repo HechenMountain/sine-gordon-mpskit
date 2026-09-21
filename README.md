@@ -1,6 +1,6 @@
 # Sine-Gordon MPSKit
 
-This project computes sine-Gordon vacuum states, soliton and breather excitations, soliton propagation, scattering, and continuum scans using the MPSKit library. The Julia code is located in `src/` with dedicated `scripts/` to generate the desired data. The Python scripts in `analysis/` generate figures from the separately distributed TSV data used in [ARXIV:ID] and provided separately via [ZENODO:ID].
+This project computes sine-Gordon vacuum states, soliton and breather excitations, soliton propagation, scattering, and continuum scans using the MPSKit library. The Julia code is located in `src/` with dedicated `scripts/` to generate the desired data. The Python scripts in `analysis/` generate figures from the separately distributed TSV data used in [Arxiv](https://arxiv.org/abs/2609.21846) and provided separately via [Zenodo](https://doi.org/10.5281/zenodo.22812679).
 
 ## Julia Setup and Calculations
 
@@ -30,6 +30,6 @@ python analysis/scattering_analysis.py
 python analysis/continuum_scan.py
 ```
 
-`scattering_plots.py` uses scattering run `20260807` and its parameter-matched free run. It writes six PDFs and one GIF. Select another run with `--run RUN_DIRECTORY`. `scattering_analysis.py` compares four scattering runs with their free references and writes three PDFs. `continuum_scan.py` selects the latest dated continuum run, currently `20260617`, and writes eleven PDFs. Pin a run with `--run 20260617` if other continuum runs are present.
+`scattering_plots.py` uses scattering run `20260807` and its parameter-matched free run. Select another run with `--run RUN_DIRECTORY`. `scattering_analysis.py` compares four scattering runs with their free references. `continuum_scan.py` selects the latest dated continuum run. Pin a run with `--run 20260617` if other continuum runs are present.
 
-Figures go to `analysis/figures/<script>/`. Use `--figure-dir PATH` to choose another destination. The scripts use a noninteractive Matplotlib backend. `scattering_analysis.py` and `continuum_scan.py` accept `--usetex` when LaTeX is installed. They retain the notebook estimators, filters, fit windows, and plotted quantities, and do not modify the TSV input files.
+Figures are saved to `analysis/figures/<script>/`. Use `--figure-dir PATH` to change the destination. Pass `--no-usetex` to any script when LaTeX is unavailable.

@@ -10,25 +10,24 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 PARSER = argparse.ArgumentParser(description=__doc__)
 PARSER.add_argument("--data-root", type=Path, default=Path(__file__).resolve().parent.parent / "data", help="Directory containing continuum_scan, soliton_free, and soliton_scattering")
 PARSER.add_argument("--figure-dir", type=Path, default=Path(__file__).resolve().parent / "figures" / "scattering_analysis", help="Output directory for figures")
-PARSER.add_argument("--usetex", action="store_true", help="Use a local LaTeX installation for figure text")
+PARSER.add_argument("--usetex", action=argparse.BooleanOptionalAction, default=True, help="Render figure text with LaTeX (use --no-usetex without TeX)")
 ARGS = PARSER.parse_args()
 DATA_BASE = ARGS.data_root.resolve()
 FIGURE_DIR = ARGS.figure_dir.resolve()
 FIGURE_DIR.mkdir(parents=True, exist_ok=True)
-os.environ.setdefault("MPLBACKEND", "Agg")
 
-import os
 import re
 import glob
 import numpy as np
 import pandas as pd
 import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from scipy.special import gamma
 from scipy.integrate import quad
 
 matplotlib.rcParams.update({
-    "text.usetex": True,        # set True if TeX is available on this machine
+    "text.usetex": ARGS.usetex,
     "font.family": "serif",
     "font.size": 11,
     "axes.labelsize": 12,
@@ -38,7 +37,6 @@ matplotlib.rcParams.update({
     "axes.grid": False,
     "figure.dpi": 130,
 })
-matplotlib.rcParams["text.usetex"] = ARGS.usetex
 
 # ── Data paths ────────────────────────────────────────────────────────────────
 DATA_ROOT = os.fspath(DATA_BASE / "soliton_scattering")
